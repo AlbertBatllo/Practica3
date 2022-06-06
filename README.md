@@ -45,12 +45,12 @@ void anotherTask( void * parameter )
 
 Al setup creem la tasca amb la funció xTaskCreate(), els paràmetres de la qual són els següents:
 
-- anotherTask: la funció que executa la tasca.
-- "anotherTask": és el nom que li donem a la tasca.
-- 10000: és el tamany de la tasca ("Stack size").
-- NULL: és el paràmetre de la tasca (en aquest cas no requereix cap).
-- 1: és la prioritat de la tasca. Com major sigui el nombre, major serà la prioritat.
-- NULL: és l'identificador de la tasca.
+- anotherTask: Funció que executa la tasca.
+- "anotherTask": Nom que li donem a la tasca.
+- 10000: Tamany de la tasca "Stack size" (en bytes).
+- NULL: Paràmetre de la tasca.
+- 1:  Prioritat de la tasca. Com major sigui el nombre, major serà la prioritat.
+- NULL: Maneig de la tasca.
 
 ```
 void setup(){
@@ -85,6 +85,5 @@ void anotherTask( void * parameter )
     vTaskDelete( NULL );
 }
 ```
-
 
 # Practica 4b
