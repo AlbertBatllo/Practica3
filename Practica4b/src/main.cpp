@@ -14,6 +14,7 @@ pinMode(LED, OUTPUT);
 semaphore= xSemaphoreCreateMutex();
 xTaskCreate(LED_ON, "ON", 10000, NULL, 1, NULL);
 xTaskCreate(LED_OFF, "OFF", 10000, NULL, 1, NULL);
+}
 
 void loop(){}
 
