@@ -3,15 +3,14 @@
 void LED_ON (void * pvParameters);
 void LED_OFF(void * pvParameters);
 
-int LED =2; 
-
-SemaphoreHandle_t semaphore;
+int LED = 2; 
+int LED2 = 19; 
 
 void setup(){
 
 Serial.begin(115200);
 pinMode(LED, OUTPUT);
-semaphore= xSemaphoreCreateMutex();
+pinMode(LED2, OUTPUT);
 xTaskCreate(LED_ON, "ON", 10000, NULL, 1, NULL);
 xTaskCreate(LED_OFF, "OFF", 10000, NULL, 1, NULL);
 }
@@ -20,18 +19,20 @@ void loop(){}
 
 void LED_ON (void * pvParameters){
     for(;;){
-        xSemaphoreTake(semaphore, portMAX_DELAY);
         digitalWrite(LED, HIGH);
-        delay(3000);
-        xSemaphoreGive(semaphore);
+        Serial.println("a");
+        vTaskDelay(1000);
+        digitalWrite(LED, LOW);
+        vTaskDelay(1000);
     }
 }
 
 void LED_OFF (void * pvParameters){
     for(;;){
-        xSemaphoreTake(semaphore, portMAX_DELAY);
-        digitalWrite(LED, LOW);
-        delay(1500);
-        xSemaphoreGive(semaphore);
+        digitalWrite(LED2, HIGH);
+        Serial.println("b");
+        vTaskDelay(500);
+        digitalWrite(LED2, LOW);
+        vTaskDelay(500);
     }
 }
