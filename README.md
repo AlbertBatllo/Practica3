@@ -1,4 +1,4 @@
-# Practica4: Sistemes operatius en temps real
+# Practica 3: Sistemes operatius en temps real
 
 L'objectiu de la pràctica es comprendre el funcionament d'un sistema operatiu en temps real
 Per a aquesta practica generarem varies tasques i veurem com sexecuten dividint el temps dús de la cpu.
@@ -86,7 +86,7 @@ void anotherTask( void * parameter )
 }
 ```
 
-# Practica 4b
+# Practica 3b
 L'objectiu d'aquesta part de la pràctica és realitzar un programa que utilitzi dues tasques: una encén un led i una altra l'apaga aquestes tasques han d'estar sincronitzades.
  
 ## Codi
